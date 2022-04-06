@@ -19,38 +19,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
             ""id"": ""8a1b533a-c465-43bf-9330-afe97030fce4"",
             ""actions"": [
                 {
-                    ""name"": ""shoot"",
-                    ""type"": ""Button"",
-                    ""id"": ""2bc1457e-a605-4bd2-99d5-5d1a84ea2320"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""MouseLook"",
-                    ""type"": ""Value"",
-                    ""id"": ""e4f9267b-3ed1-41a7-9847-7419d62a83bf"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""cameraUnlock"",
-                    ""type"": ""Button"",
-                    ""id"": ""780581aa-37e6-46f7-bcd4-a2fce03b2c8e"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""scroll"",
-                    ""type"": ""Value"",
-                    ""id"": ""47bf7076-6462-4270-82c4-a69ba91e5135"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
                     ""name"": ""movement"",
                     ""type"": ""Value"",
                     ""id"": ""a82d5fc7-2416-4d2d-a831-8b37411ac41b"",
@@ -65,53 +33,17 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""posses"",
+                    ""type"": ""Button"",
+                    ""id"": ""7570776a-a4c0-4741-be08-ea0b53259dad"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""9646bc18-9048-4299-b51b-2722d43e77fe"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""shoot"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""be68f4b1-465f-405e-bdab-55c4d357fed7"",
-                    ""path"": ""<Mouse>/delta"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MouseLook"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""eccc7d01-c531-41ab-9893-270371a768ae"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""cameraUnlock"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""05c5829e-35fc-4f6c-a2d1-6708d92d48e4"",
-                    ""path"": ""<Mouse>/scroll/y"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""scroll"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": ""2D Vector"",
                     ""id"": ""65550841-a089-4d1a-aced-8d5c62c75ecd"",
@@ -177,6 +109,17 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""action"": ""mousePosition"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2c49985b-6cbd-44d6-82d6-7e3e0c10e68b"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""posses"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -185,12 +128,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
 }");
         // player
         m_player = asset.FindActionMap("player", throwIfNotFound: true);
-        m_player_shoot = m_player.FindAction("shoot", throwIfNotFound: true);
-        m_player_MouseLook = m_player.FindAction("MouseLook", throwIfNotFound: true);
-        m_player_cameraUnlock = m_player.FindAction("cameraUnlock", throwIfNotFound: true);
-        m_player_scroll = m_player.FindAction("scroll", throwIfNotFound: true);
         m_player_movement = m_player.FindAction("movement", throwIfNotFound: true);
         m_player_mousePosition = m_player.FindAction("mousePosition", throwIfNotFound: true);
+        m_player_posses = m_player.FindAction("posses", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -240,22 +180,16 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     // player
     private readonly InputActionMap m_player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
-    private readonly InputAction m_player_shoot;
-    private readonly InputAction m_player_MouseLook;
-    private readonly InputAction m_player_cameraUnlock;
-    private readonly InputAction m_player_scroll;
     private readonly InputAction m_player_movement;
     private readonly InputAction m_player_mousePosition;
+    private readonly InputAction m_player_posses;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
         public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @shoot => m_Wrapper.m_player_shoot;
-        public InputAction @MouseLook => m_Wrapper.m_player_MouseLook;
-        public InputAction @cameraUnlock => m_Wrapper.m_player_cameraUnlock;
-        public InputAction @scroll => m_Wrapper.m_player_scroll;
         public InputAction @movement => m_Wrapper.m_player_movement;
         public InputAction @mousePosition => m_Wrapper.m_player_mousePosition;
+        public InputAction @posses => m_Wrapper.m_player_posses;
         public InputActionMap Get() { return m_Wrapper.m_player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -265,57 +199,36 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
             {
-                @shoot.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
-                @shoot.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
-                @shoot.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
-                @MouseLook.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseLook;
-                @MouseLook.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseLook;
-                @MouseLook.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMouseLook;
-                @cameraUnlock.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCameraUnlock;
-                @cameraUnlock.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCameraUnlock;
-                @cameraUnlock.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCameraUnlock;
-                @scroll.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScroll;
-                @scroll.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScroll;
-                @scroll.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScroll;
                 @movement.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @movement.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @movement.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMovement;
                 @mousePosition.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePosition;
                 @mousePosition.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePosition;
                 @mousePosition.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMousePosition;
+                @posses.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPosses;
+                @posses.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPosses;
+                @posses.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPosses;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @shoot.started += instance.OnShoot;
-                @shoot.performed += instance.OnShoot;
-                @shoot.canceled += instance.OnShoot;
-                @MouseLook.started += instance.OnMouseLook;
-                @MouseLook.performed += instance.OnMouseLook;
-                @MouseLook.canceled += instance.OnMouseLook;
-                @cameraUnlock.started += instance.OnCameraUnlock;
-                @cameraUnlock.performed += instance.OnCameraUnlock;
-                @cameraUnlock.canceled += instance.OnCameraUnlock;
-                @scroll.started += instance.OnScroll;
-                @scroll.performed += instance.OnScroll;
-                @scroll.canceled += instance.OnScroll;
                 @movement.started += instance.OnMovement;
                 @movement.performed += instance.OnMovement;
                 @movement.canceled += instance.OnMovement;
                 @mousePosition.started += instance.OnMousePosition;
                 @mousePosition.performed += instance.OnMousePosition;
                 @mousePosition.canceled += instance.OnMousePosition;
+                @posses.started += instance.OnPosses;
+                @posses.performed += instance.OnPosses;
+                @posses.canceled += instance.OnPosses;
             }
         }
     }
     public PlayerActions @player => new PlayerActions(this);
     public interface IPlayerActions
     {
-        void OnShoot(InputAction.CallbackContext context);
-        void OnMouseLook(InputAction.CallbackContext context);
-        void OnCameraUnlock(InputAction.CallbackContext context);
-        void OnScroll(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
+        void OnPosses(InputAction.CallbackContext context);
     }
 }

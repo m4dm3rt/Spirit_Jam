@@ -6,38 +6,6 @@
             "id": "8a1b533a-c465-43bf-9330-afe97030fce4",
             "actions": [
                 {
-                    "name": "shoot",
-                    "type": "Button",
-                    "id": "2bc1457e-a605-4bd2-99d5-5d1a84ea2320",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "MouseLook",
-                    "type": "Value",
-                    "id": "e4f9267b-3ed1-41a7-9847-7419d62a83bf",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "cameraUnlock",
-                    "type": "Button",
-                    "id": "780581aa-37e6-46f7-bcd4-a2fce03b2c8e",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "scroll",
-                    "type": "Value",
-                    "id": "47bf7076-6462-4270-82c4-a69ba91e5135",
-                    "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "movement",
                     "type": "Value",
                     "id": "a82d5fc7-2416-4d2d-a831-8b37411ac41b",
@@ -52,53 +20,17 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "posses",
+                    "type": "Button",
+                    "id": "7570776a-a4c0-4741-be08-ea0b53259dad",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "9646bc18-9048-4299-b51b-2722d43e77fe",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "shoot",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "be68f4b1-465f-405e-bdab-55c4d357fed7",
-                    "path": "<Mouse>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MouseLook",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "eccc7d01-c531-41ab-9893-270371a768ae",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "cameraUnlock",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "05c5829e-35fc-4f6c-a2d1-6708d92d48e4",
-                    "path": "<Mouse>/scroll/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "scroll",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "2D Vector",
                     "id": "65550841-a089-4d1a-aced-8d5c62c75ecd",
@@ -162,6 +94,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "mousePosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2c49985b-6cbd-44d6-82d6-7e3e0c10e68b",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "posses",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

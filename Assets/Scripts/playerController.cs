@@ -29,7 +29,6 @@ public class playerController : MonoBehaviour
     [Space, Header("Visual stuff")]
     public float turnLerpSpeed = 1f;
 
-
     private Vector3 moveDirection;
     private Vector3 goalVel;
 
@@ -37,6 +36,9 @@ public class playerController : MonoBehaviour
     public Vector3 groudPos;
     [HideInInspector]
     public bool onGround = false;
+
+    private string curForm = "ghost";
+    private GameObject toBePossessedOB;
 
     private void Awake() {
         inputActions = new PlayerInputActions();
@@ -47,44 +49,67 @@ public class playerController : MonoBehaviour
     }
 
     private void OnEnable() {
-        inputActions.player.shoot.performed += onShoot;    
+        inputActions.player.posses.performed += onPosses;    
     }
     
     private void OnDisable() {
-        inputActions.player.shoot.performed -= onShoot;    
+        inputActions.player.posses.performed -= onPosses;    
     }
 
 
-   private void FixedUpdate() {
-        downFireRaycast(out bool hasHit, out RaycastHit hit);
-        
-        moveDirection = calculateDesiredMoveDirection();
-
-        float slope = slopeInFrontOfPlayer();
-        if (slope < maxGroundAngle || slope == 404f){
-            movePlayer();
-        } else{
-            movePlayer(0);
+    private void FixedUpdate() {
+        if(this.transform.parent == null){
+            curForm = "ghost";
         }
 
-        if (hasHit){    
-            if (hit.distance < maxRideDistance){
-                floatAboveGround(hit);
-                onGround = true;
-            }else {
+        if(curForm == "ghost"){
+            downFireRaycast(out bool hasHit, out RaycastHit hit);
+            
+            moveDirection = calculateDesiredMoveDirection();
+
+            float slope = slopeInFrontOfPlayer();
+            if (slope < maxGroundAngle || slope == 404f){
+                movePlayer();
+            } else{
+                movePlayer(0);
+            }
+
+            if (hasHit){    
+                if (hit.distance < maxRideDistance){
+                    floatAboveGround(hit);
+                    onGround = true;
+                }else {
+                    onGround = false;
+                }
+            } else {
                 onGround = false;
             }
-        } else {
-            onGround = false;
-        }
-        
-        if (moveDirection != Vector3.zero){
-            rotatePlayer();
+            
+            if (moveDirection != Vector3.zero){
+                rotatePlayer();
+            }
         }
     }
 
-    public void onShoot(InputAction.CallbackContext context){
-        print("shots fired");
+
+    private void OnTriggerStay(Collider other) {
+        if(other.tag == "Possesible"){
+            toBePossessedOB = other.gameObject;
+        }
+    }
+
+    private void OnTriggerExit(Collider other) {
+        if(other.tag == "Possesible"){
+            toBePossessedOB = null;
+        }
+    }
+
+
+    public void onPosses(InputAction.CallbackContext context){
+        if(toBePossessedOB != null){
+            this.transform.parent = toBePossessedOB.transform;
+            curForm = toBePossessedOB.name + "PLAYER";
+        }
     }
 
     public void downFireRaycast(out bool hasHit, out RaycastHit rayhit){
@@ -163,8 +188,8 @@ public class playerController : MonoBehaviour
         float moveVertical = inputActions.player.movement.ReadValue<Vector2>().y;
         float moveHorizontal = inputActions.player.movement.ReadValue<Vector2>().x;
 
-        Vector3 camForward = camera.transform.forward;
-        Vector3 camRight = camera.transform.right;
+        Vector3 camForward = Vector3.forward; //camera.transform.forward;
+        Vector3 camRight = Vector3.right; //camera.transform.right;
 
         camForward.y = 0f;
         camRight.y = 0f;
