@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class possesibleBasic : MonoBehaviour
 {
     private PlayerInputActions inputActions;
+    private Cinemachine.CinemachineFreeLook cinemachineFreeLook;
     private Rigidbody RB;
+    private GameObject Player;
 
     bool grounded = false;
     bool possed = false;
@@ -13,6 +16,8 @@ public class possesibleBasic : MonoBehaviour
     private void Awake() {
         inputActions = new PlayerInputActions();
         inputActions.player.Enable();
+
+        cinemachineFreeLook = FindObjectOfType<Cinemachine.CinemachineFreeLook>();
 
         RB = GetComponent<Rigidbody>();        
     }
@@ -22,6 +27,8 @@ public class possesibleBasic : MonoBehaviour
         foreach (Transform child in transform)
         {
             if(child.tag == "Player"){
+                Player = child.gameObject;
+                child.gameObject.SetActive(false);
                 possed = true;
                 continue;
             }else{
@@ -30,6 +37,10 @@ public class possesibleBasic : MonoBehaviour
         }
         
         if (possed){
+            inputActions.player.Enable();
+            cinemachineFreeLook.LookAt = this.gameObject.transform;
+            cinemachineFreeLook.Follow = this.gameObject.transform;
+
             Vector3 moveDir = calculateDesiredMoveDirection();
 
             if (grounded){
@@ -44,6 +55,31 @@ public class possesibleBasic : MonoBehaviour
             }
 
             RB.AddForce(moveDir, ForceMode.Impulse);    
+        }else{
+            inputActions.player.Disable();
+        }
+    }
+
+    private void OnEnable() {
+        inputActions.player.posses.performed += dePosses;    
+    }
+    
+    private void OnDisable() {
+        inputActions.player.posses.performed -= dePosses;    
+    }
+
+    public void dePosses(InputAction.CallbackContext context){
+        if (possed){
+            Player.transform.position = this.transform.position;
+            Player.transform.rotation = Quaternion.identity;
+            
+            cinemachineFreeLook.LookAt = Player.gameObject.transform;
+            cinemachineFreeLook.Follow = Player.gameObject.transform;
+           
+            Player.transform.parent = null;
+            Player.SetActive(true);
+            
+            possed = false;
         }
     }
 
