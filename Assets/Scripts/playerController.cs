@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class playerController : MonoBehaviour
 {
@@ -91,7 +92,16 @@ public class playerController : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider collision)
+    {
+        Debug.Log(collision);
 
+
+        if (collision.tag == "FinishLine")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+    }
     private void OnTriggerStay(Collider other) {
         if(other.tag == "Possesible"){
             toBePossessedOB = other.gameObject;
