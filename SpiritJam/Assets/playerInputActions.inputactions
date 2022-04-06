@@ -11,7 +11,8 @@
                     "id": "a82d5fc7-2416-4d2d-a831-8b37411ac41b",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "mousePosition",
@@ -19,7 +20,8 @@
                     "id": "d6e1ca19-24ee-42ad-a5d8-379a8a0c6af5",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "posses",
@@ -27,7 +29,26 @@
                     "id": "7570776a-a4c0-4741-be08-ea0b53259dad",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "cameraUnlock",
+                    "type": "Button",
+                    "id": "678650eb-d9e8-4ddb-be29-6e8522185421",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "scroll",
+                    "type": "PassThrough",
+                    "id": "de164781-69e4-4031-9082-28768dbe3ea8",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -105,6 +126,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "posses",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e80ab831-08e2-42cf-93f2-a578cf1360fd",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "cameraUnlock",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bc951956-576f-41f9-b75a-6d0a1541f9ff",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "scroll",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
