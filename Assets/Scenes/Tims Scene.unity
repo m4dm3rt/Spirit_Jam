@@ -380,7 +380,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh20656
+  m_Name: pb_Mesh24218
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1045,7 +1045,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh20590
+  m_Name: pb_Mesh24188
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1777,7 +1777,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh20752
+  m_Name: pb_Mesh24304
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3028,6 +3028,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8608374840821281889, guid: df655292c28ebb24981ad6a078362825, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8bb5218df3ea36543978f17c91c267e4, type: 2}
     - target: {fileID: 8608374840821281891, guid: df655292c28ebb24981ad6a078362825, type: 3}
       propertyPath: m_Name
       value: Turret
@@ -3076,6 +3080,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8608374841527612037, guid: df655292c28ebb24981ad6a078362825, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0183c3d84b5cb7f45a6e857ddce71e1f, type: 2}
+    - target: {fileID: 8608374842065393059, guid: df655292c28ebb24981ad6a078362825, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8bb5218df3ea36543978f17c91c267e4, type: 2}
+    - target: {fileID: 8608374842219824069, guid: df655292c28ebb24981ad6a078362825, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0183c3d84b5cb7f45a6e857ddce71e1f, type: 2}
+    - target: {fileID: 8608374842248074990, guid: df655292c28ebb24981ad6a078362825, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0183c3d84b5cb7f45a6e857ddce71e1f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df655292c28ebb24981ad6a078362825, type: 3}
 --- !u!1001 &8848038283561553415
