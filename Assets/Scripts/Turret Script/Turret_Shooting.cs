@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Turret_Shooting : MonoBehaviour
 {
+    public Animator TurretAnimator;
     public GameObject Bullet;
     public GameObject BulletSpawner;
     public float cooldown;
@@ -38,8 +39,12 @@ public class Turret_Shooting : MonoBehaviour
         firerate -= Time.deltaTime;
         if (firerate<=0&&PlayerInRange)
         {
-            Instantiate(Bullet, BulletSpawner.transform.position, Quaternion.identity);
-            firerate = cooldown;
+            TurretAnimator.SetTrigger("Shooting");
         }
+    }
+    void shoot()
+    {
+        Instantiate(Bullet, BulletSpawner.transform.position, Quaternion.identity);
+        firerate = cooldown;
     }
 }
