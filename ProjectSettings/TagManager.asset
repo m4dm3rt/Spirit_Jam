@@ -3,9 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Possesible
-  - FinishLine
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -13,13 +11,13 @@ TagManager:
   - 
   - Water
   - UI
-  - PlayerGhostform
+  - Player
   - PlayerMouse
   - ditherWhenOcluded
   - agent
   - agentObstacles
   - 
-  - possesable
+  - 
   - 
   - 
   - 
