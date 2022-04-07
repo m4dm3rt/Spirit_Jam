@@ -1296,70 +1296,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 878375273}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &912847487 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8848038284487931634, guid: e20bba6c60d077a47a54a9a6c983d464, type: 3}
-  m_PrefabInstance: {fileID: 8848038283561553415}
-  m_PrefabAsset: {fileID: 0}
---- !u!81 &912847491
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 912847487}
-  m_Enabled: 1
---- !u!1 &1041712291 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3220231706876996377, guid: ad9eb9c09bd052441a3e43db3a85f659, type: 3}
-  m_PrefabInstance: {fileID: 3220231707476902572}
-  m_PrefabAsset: {fileID: 0}
---- !u!81 &1041712293
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1041712291}
-  m_Enabled: 1
---- !u!1 &1090714464 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3220231707096870877, guid: ad9eb9c09bd052441a3e43db3a85f659, type: 3}
-  m_PrefabInstance: {fileID: 3220231707476902572}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1090714469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1090714464}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
-  m_Cameras: []
-  m_RendererIndex: -1
-  m_VolumeLayerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  m_VolumeTrigger: {fileID: 0}
-  m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
-  m_AntialiasingQuality: 2
-  m_StopNaN: 0
-  m_Dithering: 0
-  m_ClearDepth: 1
-  m_AllowXRRendering: 1
-  m_RequiresDepthTexture: 0
-  m_RequiresColorTexture: 0
-  m_Version: 2
 --- !u!1 &1184796276
 GameObject:
   m_ObjectHideFlags: 0
@@ -3620,6 +3556,14 @@ PrefabInstance:
       propertyPath: m_Orbits.Array.data[2].m_Height
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7453161521236929275, guid: ad9eb9c09bd052441a3e43db3a85f659, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7453161521236929275, guid: ad9eb9c09bd052441a3e43db3a85f659, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad9eb9c09bd052441a3e43db3a85f659, type: 3}
 --- !u!1001 &8848038283561553415
@@ -3680,6 +3624,10 @@ PrefabInstance:
     - target: {fileID: 8848038284487931634, guid: e20bba6c60d077a47a54a9a6c983d464, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8848038284487931647, guid: e20bba6c60d077a47a54a9a6c983d464, type: 3}
+      propertyPath: maxSpeed
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e20bba6c60d077a47a54a9a6c983d464, type: 3}
