@@ -18,7 +18,7 @@ public class Bullet_Movement : MonoBehaviour
         rb = this.GetComponent<Rigidbody>();
         Target = GameObject.FindGameObjectWithTag("Player");
         moveDirection = (Target.transform.position - transform.position).normalized * speed;
-        rb.velocity = new Vector3(moveDirection.x, moveDirection.y,moveDirection.z);
+        rb.velocity = new Vector3(moveDirection.x, moveDirection.y, moveDirection.z);
         pitch = Random.Range(0.9f, 1.3f);
         ShootSound.pitch = pitch;
         ShootSound.Play();
@@ -29,4 +29,22 @@ public class Bullet_Movement : MonoBehaviour
     {
         //Bullet.transform.position = new Vector2(transform.position.x + (Time.deltaTime * speed), transform.position.y);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("bullet hit player");
+            Destroy(this.gameObject);
+        }
+        else if (collision.gameObject.tag != "Player" && collision.gameObject.tag == "Turret")
+        {
+        }
+        else
+        {
+            Debug.Log("bullet not hit player");
+            Destroy(this.gameObject);
+        }
+    }
+
 }

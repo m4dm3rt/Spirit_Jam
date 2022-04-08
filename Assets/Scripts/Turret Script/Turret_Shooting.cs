@@ -16,6 +16,7 @@ public class Turret_Shooting : MonoBehaviour
     private GameObject Player;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,4 +48,6 @@ public class Turret_Shooting : MonoBehaviour
         Instantiate(Bullet, BulletSpawner.transform.position, Quaternion.identity);
         firerate = cooldown;
     }
+
+
 }

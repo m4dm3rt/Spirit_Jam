@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8267993707188619534}
   m_Layer: 0
   m_Name: InnerBarrel
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 8267993707823943658}
   m_Layer: 0
   m_Name: Animated Turret
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 8267993708608099865}
   m_Layer: 0
   m_Name: Bullet Spawner
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 8267993708685768778}
   m_Layer: 0
   m_Name: Turret Barrel
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -375,7 +375,7 @@ GameObject:
   - component: {fileID: 8267993708714405211}
   m_Layer: 0
   m_Name: OuterBarrel
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -472,7 +472,7 @@ GameObject:
   - component: {fileID: 8267993708800683567}
   m_Layer: 0
   m_Name: Turret Head
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
