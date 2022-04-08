@@ -94,9 +94,6 @@ public class playerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        Debug.Log(collision);
-
-
         if (collision.tag == "FinishLine")
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
