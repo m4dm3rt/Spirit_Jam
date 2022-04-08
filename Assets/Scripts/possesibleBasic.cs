@@ -41,22 +41,33 @@ public class possesibleBasic : MonoBehaviour
             cinemachineFreeLook.LookAt = this.gameObject.transform;
             cinemachineFreeLook.Follow = this.gameObject.transform;
 
-            Vector3 moveDir = calculateDesiredMoveDirection();
+            Vector3 moveDir = calculateDesiredMoveDirection() * 3;
 
             if (grounded){
-                grounded = false;
-                moveDir = moveDir * 2;
-
                 if(moveDir != Vector3.zero){
                     moveDir += Vector3.up * 2;
                 }
+
             } else {
                 moveDir = moveDir / 3;
             }
 
-            RB.AddForce(moveDir, ForceMode.Impulse);    
+            RB.AddForceAtPosition(moveDir, new Vector3(this.transform.position.x, this.transform.position.y + 0.25f, this.transform.position.z), ForceMode.Impulse);
         }else{
             inputActions.player.Disable();
+        }
+        
+    }
+
+    private void OnCollisionStay(Collision other) {
+        if (other.gameObject.layer == LayerMask.NameToLayer("possibleObjectGround")){
+            grounded = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision other) {
+        if (other.gameObject.layer == LayerMask.NameToLayer("possibleObjectGround")){
+            grounded = false;
         }
     }
 
@@ -83,9 +94,6 @@ public class possesibleBasic : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision other) {
-        grounded = true;
-    }
 
 
     private Vector3 calculateDesiredMoveDirection(){
