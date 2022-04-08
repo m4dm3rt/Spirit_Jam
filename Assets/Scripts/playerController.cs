@@ -29,9 +29,12 @@ public class playerController : MonoBehaviour
 
     [Space, Header("Visual stuff")]
     public float turnLerpSpeed = 1f;
+    public GameObject key;
+    public bool hasKey = false;
 
     private Vector3 moveDirection;
     private Vector3 goalVel;
+    private GameObject keyIndicator;
 
     [HideInInspector]
     public Vector3 groudPos;
@@ -47,6 +50,9 @@ public class playerController : MonoBehaviour
 
         RB = GetComponent<Rigidbody>();
         camera = Camera.main;
+
+        keyIndicator = Instantiate(key, new Vector3(this.transform.position.x, this.transform.position.y + 0.3f, this.transform.position.z), Quaternion.identity);
+        keyIndicator.transform.parent = this.transform;
     }
 
     private void OnEnable() {
@@ -89,6 +95,12 @@ public class playerController : MonoBehaviour
             if (moveDirection != Vector3.zero){
                 rotatePlayer();
             }
+        }
+
+        if (hasKey){
+            keyIndicator.SetActive(true);
+        }else{
+            keyIndicator.SetActive(false);
         }
     }
 
