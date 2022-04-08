@@ -71,6 +71,15 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PauseMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""fe3accbb-4291-42e1-9b12-eadbce098ffa"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -172,6 +181,17 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""scroll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""796d7a71-9535-42ac-b978-068994c0fd8c"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PauseMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -185,6 +205,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_player_posses = m_player.FindAction("posses", throwIfNotFound: true);
         m_player_cameraUnlock = m_player.FindAction("cameraUnlock", throwIfNotFound: true);
         m_player_scroll = m_player.FindAction("scroll", throwIfNotFound: true);
+        m_player_PauseMenu = m_player.FindAction("PauseMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -249,6 +270,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_player_posses;
     private readonly InputAction m_player_cameraUnlock;
     private readonly InputAction m_player_scroll;
+    private readonly InputAction m_player_PauseMenu;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -258,6 +280,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @posses => m_Wrapper.m_player_posses;
         public InputAction @cameraUnlock => m_Wrapper.m_player_cameraUnlock;
         public InputAction @scroll => m_Wrapper.m_player_scroll;
+        public InputAction @PauseMenu => m_Wrapper.m_player_PauseMenu;
         public InputActionMap Get() { return m_Wrapper.m_player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -282,6 +305,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @scroll.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScroll;
                 @scroll.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScroll;
                 @scroll.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnScroll;
+                @PauseMenu.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
+                @PauseMenu.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
+                @PauseMenu.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPauseMenu;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -301,6 +327,9 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @scroll.started += instance.OnScroll;
                 @scroll.performed += instance.OnScroll;
                 @scroll.canceled += instance.OnScroll;
+                @PauseMenu.started += instance.OnPauseMenu;
+                @PauseMenu.performed += instance.OnPauseMenu;
+                @PauseMenu.canceled += instance.OnPauseMenu;
             }
         }
     }
@@ -312,5 +341,6 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnPosses(InputAction.CallbackContext context);
         void OnCameraUnlock(InputAction.CallbackContext context);
         void OnScroll(InputAction.CallbackContext context);
+        void OnPauseMenu(InputAction.CallbackContext context);
     }
 }

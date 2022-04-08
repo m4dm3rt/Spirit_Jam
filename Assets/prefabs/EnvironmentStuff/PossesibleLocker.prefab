@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 4582092295110482810}
   - component: {fileID: 4270082979919247314}
   m_Layer: 0
-  m_Name: Locker
+  m_Name: PossesibleLocker
   m_TagString: Possesible
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
